@@ -1,3 +1,16 @@
 <resources>
-    <bool name="profile_supported_hs_hfp">false</bool>
+    <bool name="profile_supported_hfpclient">true</bool>
+    <bool name="profile_supported_pbapclient">true</bool>
+    <bool name="profile_supported_mapmce">true</bool>
+    <bool name="profile_supported_avrcp_controller">true</bool>
+    <bool name="profile_supported_a2dp_sink">true</bool>
+    
+    <!-- For enabling the AVRCP Controller Cover Artwork feature -->
+    <bool name="avrcp_controller_enable_cover_art">true</bool>
+    
+    <!-- For enabling the hfp client connection service -->
+    <bool name="hfp_client_connection_service_enabled">true</bool>
+    
+    <!-- Enabling the phone policy -->
+    <bool name="enable_phone_policy">false</bool
 </resources>
