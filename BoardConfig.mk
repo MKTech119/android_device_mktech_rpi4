@@ -34,7 +34,7 @@ TARGET_BOARD_PLATFORM := bcm2711
 TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1073741824 # 1024M
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2147483648 # 2048M
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 134217728 # 128M
 
 TARGET_COPY_OUT_VENDOR := vendor
@@ -63,10 +63,10 @@ BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/arpi/rpi4/bluetooth
-BOARD_CUSTOM_BT_CONFIG := device/arpi/rpi4/bluetooth/vnd_rpi4.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/mktech/mktech_car_rpi4/bluetooth
+BOARD_CUSTOM_BT_CONFIG := device/mktech/mktech_car_rpi4/bluetooth/vnd_rpi4.txt
 
 BOARD_SEPOLICY_DIRS := \
-    device/arpi/rpi4/sepolicy
+    device/mktech/mktech_car_rpi4/sepolicy
 
-DEVICE_MANIFEST_FILE := device/arpi/rpi4/manifest.xml
+DEVICE_MANIFEST_FILE := device/mktech/mktech_car_rpi4/manifest.xml
