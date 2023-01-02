@@ -14,7 +14,8 @@
 # limitations under the License.
 #
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, device/generic/car/common/car.mk)
 
 PRODUCT_NAME := mktech_car_rpi4
 PRODUCT_DEVICE := mktech_car_rpi4
@@ -125,4 +126,4 @@ PRODUCT_COPY_FILES := \
 DEVICE_PACKAGE_OVERLAYS := device/mktech/mktech_car_rpi4/overlay
 PRODUCT_CHARACTERISTICS := automotive
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
