@@ -101,6 +101,9 @@ PRODUCT_PACKAGES += android.automotive.evs.manager@1.1 \
                     evs_app
 PRODUCT_PRODUCT_PROPERTIES += persist.automotive.evs.mode=0
 
+# Sepolicy for EVS
+include packages/services/Car/evs/sepolicy/evs.mk
+
 # Automotive display service
 PRODUCT_PACKAGES += android.frameworks.automotive.display@1.0-service
 
