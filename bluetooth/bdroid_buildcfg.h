@@ -5,6 +5,6 @@
 
 #define BTA_AV_SINK_INCLUDED TRUE
 
-#define BTA_DM_COD {0x5A, 0x03, 0x8}
+#define BTA_DM_COD {0x5A, 0x03, 0x08}
 
 #endif
