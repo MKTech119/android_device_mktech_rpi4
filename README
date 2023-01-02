@@ -29,7 +29,7 @@ Read it first : https://github.com/MKTech119/android_local_manifests/tree/mktech
   : use -L option for mkfs.ext4, and -n option for mkfs.vfat
  
 # Write system & vendor partition
-  $ cd out/target/product/rpi4
+  $ cd out/target/product/mktech_car_rpi4
   $ sudo dd if=system.img of=/dev/<p2> bs=1M
   $ sudo dd if=vendor.img of=/dev/<p3> bs=1M
   
