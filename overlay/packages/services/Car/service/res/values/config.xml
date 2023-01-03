@@ -1,35 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-      <!-- The services that needs to be started earlier in the boot sequence and in particular order.
-         Every item in this array contains a flatten component name of a service that needs to be
-         started and a list of parameters after hashtag symbol. Here's the format:
-
-         <item>com.bar.foo/.Service#bind={bind|start|startForeground},user={all|system|foreground},
-         trigger={asap,userUnlocked}</item>
-
-         bind: bind - start service with Context#bindService
-               start - start service with Context#startService
-               startForeground - start service with Context#startForegroundService
-               If service was bound it will be restarted unless it is constantly crashing.
-               The default value is 'start'
-         user: all - the service will be bound/started for system and all foreground users
-               system - the service will be started/bound only for system user (u0)
-               foreground - the service will be bound/started only for foreground users
-               The default value is 'all'
-         trigger: indicates when the service needs to be started/bound
-               asap - the service might be bound when user is not fully loaded, be careful with
-                      this value, the service also needs to have directBootAware flag set to true
-               userUnlocked - start service when user unlocked the device
-               The default value is 'userUnlocked'
-
-         If the service bound/started for foreground user it will be unbound/stopped when user
-         is no longer foreground.
-     -->
-    <string-array translatable="false" name="config_earlyStartupServices">
-        <item>com.android.car.messenger/.MessengerService#bind=startForeground,user=foreground,trigger=userUnlocked</item>
-    </string-array>
-  
-      <!-- Configuration to enable passenger support.
-         If this is set to true and there is a passenger display, a user can login to the passenger
-         display and use it as a normal Android user. -->
-    <bool name="enablePassengerSupport">true</bool>
+  <!-- No notice screen on startup --> 
+  <string name="config_userNoticeUiService" translatable="false"></string>
 </resources>

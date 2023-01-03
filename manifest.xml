@@ -1,35 +1,5 @@
 <manifest version="1.0" type="device" target-level="2">
     <hal format="hidl">
-        <name>android.hardware.automotive.audiocontrol</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IAudioControl</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.broadcastradio</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>IBroadcastRadio</name>
-            <instance>amfm</instance>
-            <instance>dab</instance>
-        </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-       <name>android.automotive.computepipe.registry</name>
-       <interface>
-           <name>IPipeQuery</name>
-           <instance>router</instance>
-       </interface>
-       <interface>
-           <name>IPipeRegistration</name>
-           <instance>router</instance>
-       </interface>
-   </hal>
-    <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
         <version>2.0</version>

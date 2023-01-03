@@ -23,17 +23,14 @@ PRODUCT_BRAND := aarpi
 PRODUCT_MANUFACTURER := ARPi
 PRODUCT_MODEL := Android Automotive on Raspberry Pi 4
 
-include frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk
-
 PRODUCT_PROPERTY_OVERRIDES += \
-    debug.drm.mode.force=1280x720 \
     gralloc.drm.kms=/dev/dri/card0 \
     gralloc.drm.device=/dev/dri/card1 \
     ro.opengles.version=196609 \
     ro.hardware.vulkan=rpi4 \
     wifi.interface=wlan0 \
     ro.rfkilldisabled=1
-
+    
 PRODUCT_SOONG_NAMESPACES += external/mesa3d
 
 # system packages
@@ -51,7 +48,7 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf \
     libbt-vendor
-
+    
 # hardware/interfaces
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service.rpi4 \
@@ -73,53 +70,9 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-service \
     android.hardware.bluetooth@1.0-impl \
     android.hardware.configstore@1.1-service \
+    android.hardware.tv.cec@1.0-service.mock \
     vndservicemanager
     
-# Auto modules
-PRODUCT_PACKAGES += \
-            android.hardware.broadcastradio@2.0-service \
-            android.hardware.automotive.vehicle@2.0-service
-
-# Additional selinux policy
-BOARD_SEPOLICY_DIRS += device/google_car/common/sepolicy
-
-PRODUCT_PACKAGES += \
-            android.hardware.automotive.audiocontrol@1.0-service
-
-# Car init.rc
-PRODUCT_COPY_FILES += \
-            packages/services/Car/car_product/init/init.bootstat.rc:root/init.bootstat.rc \
-            packages/services/Car/car_product/init/init.car.rc:root/init.car.rc
-
-# broadcast radio feature
- PRODUCT_COPY_FILES += \
-        frameworks/native/data/etc/android.hardware.broadcastradio.xml:system/etc/permissions/android.hardware.broadcastradio.xml
-        
-# EVS v1.1
-PRODUCT_PACKAGES += android.automotive.evs.manager@1.1 \
-                    android.hardware.automotive.evs@1.1-sample \
-                    evs_app
-PRODUCT_PRODUCT_PROPERTIES += persist.automotive.evs.mode=0
-
-# Automotive display service
-PRODUCT_PACKAGES += android.frameworks.automotive.display@1.0-service
-
-# Pre-create users
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    android.car.number_pre_created_users=1 \
-    android.car.number_pre_created_guests=1 \
-    android.car.user_hal_enabled=true
-
-# Enable landscape
-PRODUCT_COPY_FILES += \
-            frameworks/native/data/etc/android.hardware.screen.landscape.xml:system/etc/permissions/android.hardware.screen.landscape.xml
-
-# Vendor Interface Manifest
-PRODUCT_COPY_FILES += \
-            frameworks/native/data/etc/android.hardware.broadcastradio.xml:system/etc/permissions/android.hardware.broadcastradio.xml
-            
-TARGET_USES_CAR_FUTURE_FEATURES := true
-
 # system configurations
 PRODUCT_COPY_FILES := \
     frameworks/native/data/etc/car_core_hardware.xml:system/etc/permissions/car_core_hardware.xml \
@@ -171,6 +124,5 @@ PRODUCT_COPY_FILES := \
     $(PRODUCT_COPY_FILES)
 
 DEVICE_PACKAGE_OVERLAYS := device/mktech/mktech_car_rpi4/overlay
-PRODUCT_CHARACTERISTICS := automotive
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
