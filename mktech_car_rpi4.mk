@@ -15,16 +15,13 @@
 #
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
-USE_OEM_TV_APP := true
-$(call inherit-product, device/google/atv/products/atv_base.mk)
+$(call inherit-product, device/generic/car/common/car.mk)
 
-PRODUCT_NAME := rpi4
-PRODUCT_DEVICE := rpi4
-PRODUCT_BRAND := arpi
+PRODUCT_NAME := mktech_car_rpi4
+PRODUCT_DEVICE := mktech_car_rpi4
+PRODUCT_BRAND := aarpi
 PRODUCT_MANUFACTURER := ARPi
-PRODUCT_MODEL := Raspberry Pi 4
-
-include frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-heap.mk
+PRODUCT_MODEL := Android Automotive on Raspberry Pi 4
 
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.drm.mode.force=1280x720 \
@@ -33,16 +30,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.vulkan=broadcom \
     wifi.interface=wlan0 \
     ro.rfkilldisabled=1
-
-# application packages
-PRODUCT_PACKAGES += \
-    DeskClock \
-    RpLauncher
-
-# overlay packages
-PRODUCT_PACKAGES += \
-    RpFrameworkOverlay
-
+    
 # system packages
 PRODUCT_PACKAGES += \
     gralloc.rpi4 \
@@ -90,7 +78,7 @@ PRODUCT_PACKAGES += \
     android.hardware.configstore@1.1-service \
     android.hardware.tv.cec@1.0-service.mock \
     vndservicemanager
-
+    
 # system configurations
 PRODUCT_COPY_FILES := \
     hardware/broadcom/wlan/bcmdhd/config/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
@@ -126,7 +114,6 @@ PRODUCT_COPY_FILES := \
     $(LOCAL_PATH)/firmware/brcm/BCM4345C0.hcd:root/lib/firmware/brcm/BCM4345C0.hcd \
     $(LOCAL_PATH)/firmware/brcm/BCM4345C5.hcd:root/lib/firmware/brcm/BCM4345C5.hcd \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf \
-    $(PRODUCT_COPY_FILES)
 
 # media configurations
 PRODUCT_COPY_FILES := \
@@ -146,7 +133,6 @@ PRODUCT_COPY_FILES := \
     frameworks/base/data/sounds/effects/ogg/camera_click_48k.ogg:$(TARGET_COPY_OUT_PRODUCT)/media/audio/ui/camera_click.ogg \
     $(PRODUCT_COPY_FILES)
 
-PRODUCT_AAPT_PREF_CONFIG := tvdpi
-PRODUCT_CHARACTERISTICS := tv
+ALLOW_MISSING_DEPENDENCIES=true
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
